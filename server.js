@@ -2,9 +2,11 @@ const express = require('express');
 const hbs = require('express-handlebars');
 const rutas_producto = require('./routes/productos/index');
 const rutas_movimiento = require('./routes/movimientos/index');
+const path = require('path');
 
 const app = express();
 
+app.use('*/css', express.static(__dirname + '/public'));
 app.engine('.hbs', hbs({
     extname: '.hbs',
     defaultLayout: 'base',
@@ -12,7 +14,7 @@ app.engine('.hbs', hbs({
 app.set('view engine', '.hbs');
 
 app.get('/', function (req, res){
-    return res.render('home', { mensaje: 'Hola Mundo!' })
+    return res.render('home', { mensaje: 'Hola Mundo!' });
 });
 
 app.use('/producto', rutas_producto);

@@ -1,4 +1,9 @@
-<h1 align="center">Productos</h1>
+<div class="row">
+    <div class="col s12">
+        <h1 align="center">Productos</h1>
+        <a href="/producto/crear" class="waves-effect waves-light btn">Nuevo</a>
+    </div>
+</div>
 <hr>
 <table class="bordered responsive-table centered highlight striped">
     <thead>
@@ -10,29 +15,15 @@
         </tr>
     </thead>
     <tbody>
+        {{#each listaProductos}}
         <tr>
-            <td>1</td>
-            <td>Producto 1</td>
-            <td>El Rayo</td>
+            <td>{{ inc @index }}</td>
+            <td>{{ objeto.nombre }}</td>
+            <td>{{ objeto.marca }}</td>
             <td>
-                <a href="/producto/editar/2" class="waves-effect waves-light btn">Editar</a>
+                <a href="/producto/editar/{{ id }}" class="waves-effect waves-light btn">Editar</a>
             </td>
         </tr>
-        <tr>
-            <td>2</td>
-            <td>Producto 2</td>
-            <td>El wasa</td>
-            <td>
-                <a href="/producto/editar/3" class="waves-effect waves-light btn">Editar</a>
-            </td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Producto 3</td>
-            <td>El sdfsdf</td>
-            <td>
-                <a href="/producto/editar/5" class="waves-effect waves-light btn">Editar</a>
-            </td>
-        </tr>
+        {{/each}}
     </tbody>
 </table>

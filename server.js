@@ -2,9 +2,17 @@ const express = require('express');
 const hbs = require('express-handlebars');
 const rutas_producto = require('./routes/productos/index');
 const rutas_movimiento = require('./routes/movimientos/index');
-const path = require('path');
+const bodyParser = require('body-parser');
+const Handlebars = require('handlebars');
 
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended : false }));
+app.use(bodyParser.json());
+
+Handlebars.registerHelper('inc', function(value, options){
+    return parseInt(value) + 1;
+});
 
 app.use('*/css', express.static(__dirname + '/public'));
 app.engine('.hbs', hbs({

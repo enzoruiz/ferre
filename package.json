@@ -14,8 +14,11 @@
     "gulp-rename": "^1.2.2"
   },
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express-handlebars": "^3.0.0",
+    "firebase": "^4.2.0",
     "gulp-sass": "^3.1.0",
+    "handlebars": "^4.0.10",
     "materialize-css": "^0.100.1"
   }
 }

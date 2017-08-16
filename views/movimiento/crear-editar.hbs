@@ -1,0 +1,55 @@
+<form method="POST">
+    <div class="card">
+        <div class="card-content">
+            <h3>Movimiento</h3>
+            <hr>
+            <div class="row">
+                <div class="input-field col s12">
+                    <select name="producto">
+                        <option value="" disabled selected>Seleccione Producto</option>
+                        {{#each listaProductos}}
+                            <option value="{{ id }}">{{ objeto.nombre }} - {{ objeto.marca }}</option>
+                        {{/each}}
+                    </select>
+                    <label>Producto</label>
+                </div>
+                <div class="col s12">
+                    <p>
+                        <input name="tipo_movimiento" type="radio" id="test1" value="1" />
+                        <label for="test1">Ingreso</label>
+                    </p>
+                    <p>
+                        <input name="tipo_movimiento" type="radio" id="test2" value="2" />
+                        <label for="test2">Salida</label>
+                    </p>
+                </div>
+                <div class="input-field col s6">
+                    <input id="cantidad" name="cantidad" type="text" class="validate" value="{{ producto.nombre }}">
+                    <label for="cantidad">Cantidad</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="stock" name="stock" type="text" class="validate" value="{{ producto.marca }}">
+                    <label for="stock">Stock</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="fecha" name="fecha" type="text" class="validate" value="{{ producto.marca }}">
+                    <label for="fecha">Fecha</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="precio_compra" name="precio_compra" type="text" class="validate" value="{{ producto.marca }}">
+                    <label for="precio_compra">Precio Compra</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="precio_venta" name="precio_venta" type="text" class="validate" value="{{ producto.marca }}">
+                    <label for="precio_venta">Precio Venta</label>
+                </div>
+            </div>
+        </div>
+        <div class="card-action">
+            {{# if id }}
+                <input type="hidden" name="id" value="{{ id }}">
+            {{/ if }}
+            <button type="submit" class="waves-effect waves-light btn">Guardar</button>
+        </div>
+    </div>
+</form>

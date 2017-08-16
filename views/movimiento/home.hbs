@@ -1,1 +1,33 @@
-<h1>Hola en movimientos usando Handlebars</h1>
+<div class="row">
+    <div class="col s12">
+        <h1 align="center">Movimientos</h1>
+        <a href="/movimiento/crear" class="waves-effect waves-light btn">Nuevo</a>
+    </div>
+</div>
+<hr>
+<table class="bordered responsive-table centered highlight striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Tipo</th>
+            <th>Producto</th>
+            <th>Cantidad</th>
+        </tr>
+    </thead>
+    <tbody id="tbodyProductos">
+        {{#each listaMovimientos}}
+        <tr>
+            <td>{{ inc @index }}</td>
+            <td>
+                {{#ifCond objeto.tipo_movimiento '==' 1}}
+                    Ingreso
+                {{else}}
+                    Salida
+                {{/ifCond}}
+            </td>
+            <td>{{ objeto.nombre_producto }}</td>
+            <td>{{ objeto.cantidad }}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

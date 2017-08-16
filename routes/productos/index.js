@@ -6,8 +6,9 @@ const database = configFirebase.database();
 
 rutas.get('', function (req, res){
     const ref = database.ref('productos');
+
     let listaProductos = [];
-    ref.on('value',function (snapshot) {
+    ref.on('value', function (snapshot) {
         snapshot.forEach(function(childSnapshot) {
             let dict = {};
             dict['id'] = childSnapshot.key;
@@ -15,6 +16,7 @@ rutas.get('', function (req, res){
             listaProductos.push(dict);
         });
     })
+
     return res.render('producto/home', { listaProductos: listaProductos });
 });
 
